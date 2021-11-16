@@ -1,0 +1,19 @@
+{
+    "name": "craymend/hotdocs-advance-php-sdk",
+    "description": "Php SDK for HotDocs Advance REST API",
+    "authors": [
+        {
+            "name": "Cray Mend",
+            "email": "craymend1@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0.1"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Craymend\\HotDocsAdvancePhpSdk\\": "src/"
+        }
+    },
+    "license": "MIT"
+}
