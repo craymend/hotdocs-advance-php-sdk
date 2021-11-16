@@ -35,7 +35,7 @@ $api = new WorkItem(
 );
 
 // set access token for API calls
-$api->requestAccessToken();
+$api->authenticate();
 
 $workItemId = 'xxxxxx';
 
@@ -72,7 +72,7 @@ $api = new WorkItem(
 );
 
 // set access token for API calls
-$api->requestAccessToken();
+$api->authenticate();
 
 $workGroupId = 'xxxxxxx';
 $templatePackageId = 'xxxxxxx';
@@ -119,7 +119,7 @@ $api = new Document(
 );
 
 // set access token for API calls
-$api->requestAccessToken();
+$api->authenticate();
 
 $fileName = date('YmdHis') . '_' . uniqid() . '.docx';
 $filePath = __DIR__ . '/hotdocs-tmp';
