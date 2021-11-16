@@ -96,6 +96,49 @@ echo json_encode($data);
 
 ```
 
+## API Usage Example - Download File
+```php
+use Craymend\HotDocsAdvancePhpSdk\Api\Document;
+
+// creds
+$tenancy = 'xxxxxx';
+$baseUrl = 'hotdocsadvance.com/api/rest/v1.1';
+$clientName = 'xxxxxx';
+$principalName = 'xxxxxx';
+$principalPassword ='xxxxxx'; 
+
+// $curlOptions = [];
+
+$api = new Document(
+    $tenancy,
+    $baseUrl,
+    $clientName,
+    $principalName,
+    $principalPassword,
+    $curlOptions
+);
+
+// set access token for API calls
+$api->requestAccessToken();
+
+$fileName = date('YmdHis') . '_' . uniqid() . '.docx';
+$filePath = __DIR__ . '/hotdocs-tmp';
+
+$workItemId = 'xxxxxx';
+$documentId = 'xxxxxx';
+
+$api->id = $documentId;
+
+// stores file contents in the provided file location
+$ret = $api->getWorkItemDocumentContent($workItemId, $filePath, $fileName);
+
+// return file to client
+header('Content-type: application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+header('Content-Disposition: attachment; filename="' . $fileName . '"');
+readfile($filePath . '/' . $fileName);
+
+```
+
 ## License
 
 The MIT License (MIT).
