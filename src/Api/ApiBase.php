@@ -27,7 +27,7 @@ class ApiBase
      * 
      * @return string
      */
-    function getGUID(){
+    function getNewGUID(){
         if (function_exists('com_create_guid')){
             return com_create_guid();
         }
@@ -60,7 +60,7 @@ class ApiBase
      * @return string
      */
     function createUuid(){
-        $uuid = getGUID();
+        $uuid = $this->getNewGUID();
         $lowerCaseUuid = strtolower($uuid);
         $trimmedUuid = substr(substr($lowerCaseUuid, 1), 0, -1);
         
